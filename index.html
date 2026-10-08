@@ -2,126 +2,441 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>블로그대리 · 사장님 대신 블로그를 쓰는 AI 대리</title>
-<meta name="description" content="소상공인·1인 사업자를 위한 네이버 블로그 AI 운영 서비스. 주제 조사부터 원고 작성, 검수, 발행 준비까지 블로그대리가 맡습니다.">
-<meta property="og:title" content="블로그대리 · 사장님 대신 블로그를 쓰는 AI 대리">
-<meta property="og:description" content="주제 조사부터 원고, 검수, 발행 준비까지. 소상공인을 위한 네이버 블로그 AI 운영 서비스.">
-<meta name="theme-color" content="#0f7b4f">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>다시 태어난다면 · 실제 통계로 뽑는 나의 다른 생</title>
+<meta name="description" content="전생, 다음 생, 조선. 실제 인구·생물 통계 비율 그대로 당신의 다른 생을 뽑아 봅니다.">
+<meta property="og:title" content="다시 태어난다면">
+<meta property="og:description" content="실제 통계로 뽑는 나의 전생, 다음 생, 조선 신분">
+<meta name="theme-color" content="#0f0e13">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-:root{--ink:#14211b;--sub:#5a6b62;--line:#e3ebe6;--bg:#f7faf8;--card:#fff;--accent:#0f7b4f;--accent2:#e8f5ee}
+:root{--bg:#0f0e13;--panel:#18161f;--panel2:#201d29;--line:#2c2836;--ink:#f4efe6;--sub:#aaa3b7;--faint:#716a82;--accent:#e9c27c}
+body[data-mode="past"]{--accent:#e9c27c}
+body[data-mode="next"]{--accent:#7fd3c7}
+body[data-mode="joseon"]{--accent:#f29a86}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.logo{font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none}
-.logo span{color:var(--accent)}
-.nav-cta{font-weight:700;font-size:14px;text-decoration:none;padding:9px 16px;border-radius:999px;background:var(--ink);color:#fff}
-.hero{padding:56px 0 64px}
-.badge{display:inline-block;font-size:13px;font-weight:700;color:var(--accent);background:var(--accent2);padding:6px 12px;border-radius:999px;margin-bottom:18px}
-h1{font-size:clamp(34px,6vw,58px);line-height:1.15;letter-spacing:-.035em;margin:0 0 18px;font-weight:800;word-break:keep-all}
-h1 em{font-style:normal;color:var(--accent)}
-.lede{font-size:clamp(16px,2.2vw,19px);color:var(--sub);max-width:640px;margin:0 0 30px;word-break:keep-all}
-.ctas{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-block;text-decoration:none;font-weight:800;padding:15px 22px;border-radius:14px;font-size:16px}
-.btn.primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -12px var(--accent)}
-.btn.ghost{background:#fff;border:1px solid var(--line)}
-section{padding:56px 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(24px,3.6vw,34px);letter-spacing:-.025em;margin:0 0 12px;line-height:1.3;word-break:keep-all}
-.sec-lede{color:var(--sub);margin:0 0 30px;max-width:640px;word-break:keep-all}
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
-.card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em}
-.card p{margin:0;color:var(--sub);font-size:15px;word-break:keep-all}
-.num{display:inline-flex;width:30px;height:30px;border-radius:9px;background:var(--accent2);color:var(--accent);font-weight:800;align-items:center;justify-content:center;margin-bottom:12px}
-.pain{font-size:18px;font-weight:700;margin:0;word-break:keep-all}
-.claude{background:var(--ink);color:#eaf3ee;border-radius:22px;padding:34px 28px}
-.claude h2{color:#fff}
-.claude p{color:#b9cbc1;margin:0 0 10px;word-break:keep-all}
-.en{font-size:15px;color:var(--sub)}
-.en p{margin:0 0 10px}
-.cta-box{background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px 28px;text-align:center}
-footer{padding:34px 0 50px;color:var(--sub);font-size:13.5px;border-top:1px solid var(--line)}
-footer p{margin:4px 0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
+.glow{position:fixed;inset:-20% -20% auto -20%;height:70vh;background:radial-gradient(closest-side,var(--accent),transparent);opacity:.12;filter:blur(40px);pointer-events:none;transition:background .6s}
+main{position:relative;max-width:540px;margin:0 auto;padding:44px 20px 64px}
+.eyebrow{color:var(--accent);font-size:13px;letter-spacing:.14em;margin:0 0 8px;font-weight:700}
+h1{font-size:40px;line-height:1.15;margin:0 0 14px;letter-spacing:-.025em;font-weight:800}
+.lede{color:var(--sub);margin:0 0 28px;font-size:15.5px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:rgba(24,22,31,.85);border:1px solid var(--line);border-radius:14px;padding:5px;margin-bottom:24px;position:sticky;top:10px;z-index:5;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.tab{appearance:none;border:0;background:transparent;color:var(--sub);font:inherit;font-weight:700;padding:11px 4px;border-radius:10px;cursor:pointer;font-size:15px}
+.tab[aria-selected="true"]{background:var(--panel2);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line),inset 0 -2px 0 var(--accent)}
+.intro h2{font-size:25px;margin:0 0 8px;letter-spacing:-.015em;line-height:1.3}
+.intro p{color:var(--sub);margin:0 0 20px;font-size:15px}
+.roll{width:100%;appearance:none;border:0;border-radius:16px;padding:18px;font:inherit;font-size:18px;font-weight:800;color:#15131a;background:var(--accent);cursor:pointer;box-shadow:0 12px 30px -14px var(--accent);transition:transform .12s,opacity .2s}
+.roll:active{transform:scale(.98)}
+.roll[disabled]{opacity:.55;cursor:default}
+.slot{margin-top:18px;min-height:64px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--line);border-radius:14px;color:var(--sub);font-size:17px;font-weight:700;text-align:center;padding:8px 14px}
+.card{margin-top:18px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:26px 22px 22px;position:relative;overflow:hidden;animation:rise .6s cubic-bezier(.2,.8,.2,1)}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--accent)}
+.kicker{font-size:13px;color:var(--accent);letter-spacing:.12em;margin:0 0 10px;font-weight:800}
+.big{font-size:26px;font-weight:800;line-height:1.32;margin:0 0 6px;letter-spacing:-.015em;word-break:keep-all}
+.meta{color:var(--sub);font-size:14px;margin:0 0 18px}
+.story p{margin:0 0 10px;font-size:16.5px;word-break:keep-all}
+.closing{margin:16px 0 0;padding:14px 16px;border-left:3px solid var(--accent);background:rgba(255,255,255,.035);border-radius:0 10px 10px 0;font-size:15.5px;word-break:keep-all}
+.stats{margin:18px 0 0;padding:14px 0 0;border-top:1px solid var(--line);display:grid;gap:8px}
+.stats div{font-size:13.5px;color:var(--sub);word-break:keep-all}
+.stats b{color:var(--ink)}
+.badge{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--accent);vertical-align:middle;margin-left:4px;letter-spacing:.04em}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.btn{appearance:none;font:inherit;font-weight:700;font-size:15px;padding:14px 10px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--ink);color:#15131a;border-color:var(--ink)}
+.btn.wide{grid-column:1/-1}
+.counter{color:var(--faint);font-size:13px;text-align:center;margin:14px 0 0}
+.sim{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 16px 12px;animation:rise .5s ease}
+.sim h4{margin:0 0 8px;font-size:15px}
+.sim table{width:100%;border-collapse:collapse;font-size:14px}
+.sim td{padding:7px 2px;border-bottom:1px solid var(--line)}
+.sim td:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--sub)}
+.sim tr.hl td{color:var(--accent);font-weight:800}
+.sim p{color:var(--sub);font-size:13px;margin:10px 0 0}
+.others{margin-top:34px}
+.others h3{font-size:14px;color:var(--sub);font-weight:700;margin:0 0 10px}
+.others .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+footer{margin-top:44px;color:var(--faint);font-size:12.5px;line-height:1.75}
+footer a{color:var(--sub)}
+footer summary{cursor:pointer;color:var(--sub);font-weight:700;margin-top:10px}
+footer ul{padding-left:18px;margin:8px 0}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:#15131a;padding:10px 18px;border-radius:999px;font-weight:800;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:20}
+.toast.show{opacity:1}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+[hidden]{display:none!important}
 </style>
 </head>
-<body>
-<div class="wrap">
-  <nav>
-    <a class="logo" href="#">블로그<span>대리</span></a>
-    <a class="nav-cta" href="mailto:hello@blogdaeri.xyz?subject=%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%8C%80%EB%A6%AC%20%EB%B2%A0%ED%83%80%20%EC%8B%A0%EC%B2%AD">베타 신청</a>
-  </nav>
-
-  <header class="hero">
-    <span class="badge">소상공인 · 1인 사업자를 위한 네이버 블로그 AI 운영</span>
-    <h1>사장님은 장사에 집중하세요.<br><em>블로그는 블로그대리가</em> 씁니다.</h1>
-    <p class="lede">이번 주에 쓸 주제 찾기, 사장님 말투로 원고 쓰기, 틀린 정보와 과장 표현 걸러내기, 발행 준비까지. 블로그 운영에 드는 손을 AI 대리가 대신합니다.</p>
-    <div class="ctas">
-      <a class="btn primary" href="mailto:hello@blogdaeri.xyz?subject=%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%8C%80%EB%A6%AC%20%EB%B2%A0%ED%83%80%20%EC%8B%A0%EC%B2%AD">베타 사전 신청하기</a>
-      <a class="btn ghost" href="#how">어떻게 일하나요?</a>
-    </div>
+<body data-mode="past">
+<div class="glow"></div>
+<main>
+  <header>
+    <p class="eyebrow">실제 통계로 뽑는</p>
+    <h1>다시 태어난다면</h1>
+    <p class="lede">어디서, 무엇으로 태어날지는 고를 수 없습니다.<br>실제 인구·생물 통계 비율 그대로 당신의 다른 생을 한 번 뽑아 봅니다.</p>
   </header>
 
-  <section>
-    <h2>블로그가 중요한 건 알지만</h2>
-    <p class="sec-lede">많은 사장님이 같은 이유로 블로그를 멈춥니다.</p>
-    <div class="grid">
-      <div class="card"><p class="pain">“쓸 시간이 없어요.”</p><p>글 한 편에 두세 시간. 영업하면서 매주 쓰기는 어렵습니다.</p></div>
-      <div class="card"><p class="pain">“뭘 써야 할지 모르겠어요.”</p><p>손님이 실제로 찾아보는 주제가 무엇인지 알기 어렵습니다.</p></div>
-      <div class="card"><p class="pain">“AI로 쓰면 티가 나요.”</p><p>어색한 말투와 틀린 정보는 오히려 가게 신뢰를 떨어뜨립니다.</p></div>
-    </div>
-  </section>
-
-  <section id="how">
-    <h2>블로그대리는 이렇게 일합니다</h2>
-    <p class="sec-lede">사장님은 처음에 가게 정보를 알려주시고, 매주 올라온 원고를 확인만 하시면 됩니다.</p>
-    <div class="grid">
-      <div class="card"><span class="num">1</span><h3>가게 정보 등록</h3><p>업종, 지역, 평소 말투, 다루면 안 되는 주제를 한 번 정해 둡니다.</p></div>
-      <div class="card"><span class="num">2</span><h3>주제 조사</h3><p>계절과 검색 수요를 보고 이번 주에 쓸 주제를 제안하고, 이미 쓴 주제는 겹치지 않게 관리합니다.</p></div>
-      <div class="card"><span class="num">3</span><h3>원고 작성</h3><p>사장님 말투로 초안을 쓰고, 모바일에서 읽기 편하게 줄을 나눕니다. 확인이 필요한 정보는 따로 표시합니다.</p></div>
-      <div class="card"><span class="num">4</span><h3>검수 · 발행 준비</h3><p>AI 티 나는 표현과 과장 광고 문구를 걸러낸 뒤, 사장님 확인을 거쳐 발행을 준비합니다.</p></div>
-    </div>
-  </section>
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" data-mode="past">전생</button>
+    <button class="tab" role="tab" data-mode="next">다음 생</button>
+    <button class="tab" role="tab" data-mode="joseon">조선</button>
+  </nav>
 
   <section>
-    <h2>믿고 맡길 수 있게</h2>
-    <div class="grid">
-      <div class="card"><h3>사람 말투로 다듬기</h3><p>“~하는 것이 좋습니다” 같은 AI 특유의 문장을 사장님이 직접 말하는 듯한 문장으로 바꿉니다.</p></div>
-      <div class="card"><h3>위험한 내용 거르기</h3><p>건강·법률·세금처럼 틀리면 곤란한 주제에는 단정 대신 전문가 확인 안내를 붙이고, 과장 광고 표현을 걸러냅니다.</p></div>
-      <div class="card"><h3>직접 써 보며 다듬는 중</h3><p>운영사 비바프랑이 직접 운영하는 블로그에 먼저 적용하며 작업 방식을 다듬고 있습니다.</p></div>
+    <div class="intro" id="intro"></div>
+    <button class="roll" id="roll">뽑기</button>
+    <div class="slot" id="slot" hidden></div>
+    <article class="card" id="card" hidden></article>
+    <div class="actions" id="actions" hidden>
+      <button class="btn" id="again">다시 뽑기</button>
+      <button class="btn primary" id="share">결과 공유하기</button>
+      <button class="btn wide" id="simBtn" hidden>1억 번 돌려 보면?</button>
     </div>
+    <div class="sim" id="sim" hidden></div>
+    <p class="counter" id="counter"></p>
   </section>
 
-  <section>
-    <div class="claude">
-      <h2>Claude로 쓰고, 사람이 확인합니다</h2>
-      <p>블로그대리는 Anthropic의 Claude로 주제 정리, 원고 작성, 표현 검수를 합니다.</p>
-      <p>마지막 확인과 발행 결정은 언제나 사장님이 합니다.</p>
-    </div>
-  </section>
-
-  <section class="en" lang="en">
-    <h2>About Blogdaeri</h2>
-    <p><strong>Blogdaeri</strong> (“blog” + <em>daeri</em>, Korean for an assistant manager) is an AI blog operations service for small business owners in Korea who need to keep a Naver Blog running but have no time to write.</p>
-    <p>Claude researches timely topics, drafts posts in the owner’s own voice, formats them for mobile reading, and flags risky claims (health, legal, tax, exaggerated advertising) before the owner reviews and approves publishing.</p>
-    <p>Blogdaeri is a new service operated by VIVAFRANG, a Korean retail business founded in 2023. We are currently refining the workflow on our own blogs and preparing a beta for small business owners.</p>
-  </section>
-
-  <section>
-    <div class="cta-box">
-      <h2>베타 사용자를 모집합니다</h2>
-      <p class="sec-lede" style="margin:0 auto 22px">업종과 지역, 운영 중인 블로그 주소를 보내주시면 순서대로 연락드립니다.</p>
-      <a class="btn primary" href="mailto:hello@blogdaeri.xyz?subject=%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%8C%80%EB%A6%AC%20%EB%B2%A0%ED%83%80%20%EC%8B%A0%EC%B2%AD">hello@blogdaeri.xyz</a>
-    </div>
+  <section class="others" id="others" hidden>
+    <h3>다른 생도 뽑아 보기</h3>
+    <div class="row" id="otherBtns"></div>
   </section>
 
   <footer>
-    <p><strong>블로그대리</strong> · 운영: 비바프랑 (VIVAFRANG)</p>
-    <p>문의: <a href="mailto:hello@blogdaeri.xyz">hello@blogdaeri.xyz</a></p>
-    <p>© 2026 Blogdaeri. 네이버 및 네이버 블로그는 네이버㈜의 상표이며, 블로그대리는 네이버와 제휴 관계가 없습니다.</p>
+    <p><strong>다시 태어난다면</strong> · 운영: 비바프랑 (VIVAFRANG) · 문의: <a href="mailto:hello@blogdaeri.xyz">hello@blogdaeri.xyz</a></p>
+    <details lang="en"><summary>About (English)</summary>
+      <p><strong>If You Were Born Again</strong> is an interactive web experience that lets people draw a different life weighted by real statistics: a past life drawn from the roughly 104.5 billion people born before 1900, a next life drawn from the population of animals alive today, or a birth in Joseon-era Korea drawn from historical household registers. Every result shows the real statistic behind it.</p>
+      <p>Today each result is assembled from statistics and short pre-written story fragments. We plan to use Claude to turn each draw into a richer, personal short story while keeping the underlying statistics accurate and clearly separated from fiction.</p>
+      <p>Operated by VIVAFRANG, a Korean retail business founded in 2023. Contact: hello@blogdaeri.xyz</p>
+    </details>
+    <p>이 사이트는 실제 통계 비율을 바탕으로 한 재미용 추첨입니다. 실제 전생, 운명, 신분과는 아무 관련이 없습니다. 이야기 속 세부 사건은 통계가 아니라 그 시대를 떠올리게 하려고 지어낸 장면입니다.</p>
+    <details><summary>전생 뽑기 자료</summary><ul>
+      <li>시기별 출생 수: Population Reference Bureau, <a href="https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/" target="_blank" rel="noopener">How Many People Have Ever Lived on Earth?</a> (2022). 전생이므로 1900년 이전 출생자만 뽑습니다.</li>
+      <li>지역 비율: <a href="https://ourworldindata.org/grapher/population" target="_blank" rel="noopener">Our World in Data</a> (HYDE 3.3, Gapminder) 국가별 인구를 지역별로 합산. 기원전 1000년 이전은 추정이거나 통계가 없습니다.</li>
+      <li>아동 사망: <a href="https://ourworldindata.org/child-mortality-in-the-past" target="_blank" rel="noopener">Our World in Data, Child mortality in the past</a> (Volk &amp; Atkinson 2013 정리).</li>
+      <li>농업 종사 비율: Broadberry &amp; Gardner (2013), <a href="https://ourworldindata.org/agri-employment-sources" target="_blank" rel="noopener">Our World in Data</a>.</li>
+    </ul></details>
+    <details><summary>다음 생 뽑기 자료</summary><ul>
+      <li>요각류: 바닷물 1L당 1마리를 가정한 거친 추정 (<a href="https://www.nwf.org/Magazines/National-Wildlife/2026/Summer/Animals/Copepods" target="_blank" rel="noopener">NWF</a>)</li>
+      <li>토양 선충: <a href="https://www.nature.com/articles/s41586-019-1418-6" target="_blank" rel="noopener">Nature 2019</a> / 개미: <a href="https://www.pnas.org/doi/10.1073/pnas.2201550119" target="_blank" rel="noopener">PNAS 2022</a> / 곤충 전체: <a href="https://www.si.edu/spotlight/buginfo/bugnos" target="_blank" rel="noopener">Smithsonian</a></li>
+      <li>남극 크릴: <a href="https://kids.frontiersin.org/articles/10.3389/frym.2023.1046647" target="_blank" rel="noopener">Frontiers for Young Minds</a> / 야생 새: <a href="https://www.pnas.org/doi/10.1073/pnas.2023170118" target="_blank" rel="noopener">PNAS 2021</a> / 야생 육상 포유류·개·고양이: <a href="https://ourworldindata.org/wild-mammals-birds-biomass" target="_blank" rel="noopener">Our World in Data</a></li>
+      <li>가축: <a href="https://ourworldindata.org/grapher/livestock-counts" target="_blank" rel="noopener">Our World in Data (FAO)</a>, 닭: <a href="https://www.fao.org/poultry-production-products/production/poultry-species/chicken/en" target="_blank" rel="noopener">FAO</a> / 사람: UN 2024</li>
+      <li>야생 물고기는 믿을 만한 전체 개체 수 추정이 없어 제외했고, 세균 같은 미생물도 뺐습니다. 서로 다른 연도의 추정을 합친 대략적인 비율입니다.</li>
+    </ul></details>
+    <details><summary>조선 뽑기 자료</summary><ul>
+      <li>신분 비율: 시카타 히로시의 대구부 호적 연구 (인구 기준), <a href="https://contents.history.go.kr/mobile/nh/view.do?levelId=nh_034_0020_0010_0010" target="_blank" rel="noopener">신편 한국사 34권</a>, <a href="https://contents.history.go.kr/mobile/nh/view.do?levelId=nh_039_0040_0040_0010_0020" target="_blank" rel="noopener">39권</a>. 대구 한 고을의 호적상 직역이라 조선 전체의 실제 신분 비율은 아닙니다.</li>
+      <li>도별 인구: 『호구총수』(1789), <a href="https://www.hisgeo.info/wiki/%EC%A1%B0%EC%84%A0_%ED%98%B8%EA%B5%AC%EC%B4%9D%EC%88%98_DB" target="_blank" rel="noopener">조선 호구총수 DB</a>. 실제 인구가 아니라 장부상 인구입니다.</li>
+      <li>기대여명: 『한국인구학』 32(1), 2009 (<a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001336483" target="_blank" rel="noopener">KCI</a>)</li>
+    </ul></details>
   </footer>
-</div>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+// ---------- helpers ----------
+const R = Math.random;
+const pick = a => a[Math.floor(R() * a.length)];
+const randInt = (a, b) => a + Math.floor(R() * (b - a + 1));
+function weighted(list, key = 'w') { let t = 0; for (const x of list) t += x[key]; let r = R() * t; for (const x of list) { r -= x[key]; if (r <= 0) return x; } return list[list.length - 1]; }
+const nf = n => Math.round(n).toLocaleString('ko-KR');
+function jong(w) { const c = w.charCodeAt(w.length - 1); if (c < 0xAC00 || c > 0xD7A3) return 0; return (c - 0xAC00) % 28; }
+const ro = w => { const j = jong(w); return (j === 0 || j === 8) ? '로' : '으로'; };
+function korBig(n) {
+  const units = [[1e20, '해'], [1e16, '경'], [1e12, '조'], [1e8, '억'], [1e4, '만']];
+  for (const [v, u] of units) { if (n >= v) { const x = n / v; const s = x >= 100 ? nf(x) : x >= 10 ? (Math.round(x * 10) / 10).toLocaleString('ko-KR') : (Math.round(x * 100) / 100).toLocaleString('ko-KR'); return s + u; } }
+  return nf(n);
+}
+function probStr(p) { if (p >= 0.01) return (p * 100 >= 10 ? Math.round(p * 100) : (Math.round(p * 1000) / 10)) + '%'; return korBig(1 / p) + ' 분의 1'; }
+const fmtYear = y => y < 0 ? `기원전 ${nf(-y)}년` : `${y}년`;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// ---------- 전생 ----------
+const PRB = [
+  { from: -190000, to: -50000, births: 7856100000, label: '기원전 19만 년~기원전 5만 년' },
+  { from: -50000, to: -8000, births: 1137789769, label: '기원전 5만 년~기원전 8000년' },
+  { from: -8000, to: 1, births: 46025332354, label: '기원전 8000년~서기 1년' },
+  { from: 1, to: 1200, births: 26591343000, label: '서기 1년~1200년' },
+  { from: 1200, to: 1650, births: 12782002453, label: '1200년~1650년' },
+  { from: 1650, to: 1750, births: 3171931513, label: '1650년~1750년' },
+  { from: 1750, to: 1850, births: 4046240009, label: '1750년~1850년' },
+  { from: 1850, to: 1900, births: 2900237856, label: '1850년~1900년' },
+];
+const PRB_TOTAL = PRB.reduce((s, p) => s + p.births, 0);
+const REG_KEYS = ['ea', 'sa', 'sea', 'eu', 'mena', 'ssa', 'am', 'oth'];
+const REG_NAME = { ea: '동아시아', sa: '남아시아', sea: '동남아시아', eu: '유럽', mena: '중동·북아프리카', ssa: '사하라 이남 아프리카', am: '아메리카', oth: '중앙아시아·오세아니아', af: '아프리카' };
+const SHARES = [
+  { y: -1000, s: [12.5, 39.8, 2.6, 11.4, 15.3, 2.9, 13.6, 1.9] },
+  { y: 1, s: [25.4, 36.5, 2.0, 13.5, 11.4, 2.0, 8.1, 1.1] },
+  { y: 1000, s: [14.2, 40.6, 2.8, 10.9, 10.5, 8.2, 11.4, 1.3] },
+  { y: 1500, s: [21.6, 30.8, 3.7, 15.3, 6.0, 9.2, 12.0, 1.3] },
+  { y: 1800, s: [38.2, 24.7, 3.5, 19.4, 3.8, 6.9, 2.5, 0.9] },
+  { y: 1900, s: [28.3, 20.9, 4.9, 24.8, 3.9, 6.9, 9.0, 1.3] },
+];
+const PLACES = {
+  af: ['동아프리카 초원', '아프리카 남부 바닷가 동굴 근처', '나일강 상류'],
+  ea: ['황하 유역', '양쯔강 하류', '한반도 남쪽 강가', '일본 규슈 바닷가', '몽골 초원', '쓰촨 분지'],
+  sa: ['갠지스강 유역', '인더스강 근처', '데칸 고원', '벵골 삼각주', '스리랑카 섬'],
+  sea: ['메콩강 삼각주', '자바섬', '말레이반도', '루손섬', '이라와디강 유역'],
+  eu: ['지중해 바닷가', '라인강 유역', '브리튼섬', '다뉴브강 근처', '러시아 평원', '스칸디나비아 해안'],
+  mena: ['나일강 유역', '메소포타미아', '아나톨리아 고원', '페르시아 고원', '레반트 해안'],
+  ssa: ['니제르강 유역', '에티오피아 고원', '콩고 분지', '동아프리카 사바나', '아프리카 남부 고원'],
+  am: ['멕시코 고원', '안데스 산맥', '미시시피강 유역', '아마존 강가', '유카탄반도'],
+  oth: ['중앙아시아 초원', '캅카스 산맥', '뉴기니섬', '태평양 작은 섬'],
+};
+function regionFor(y) {
+  if (y < -50000) return { key: 'af', name: REG_NAME.af, place: pick(PLACES.af), kind: 'early' };
+  if (y < -8000) {
+    const keys = REG_KEYS.filter(k => k !== 'am' || y > -14000);
+    const k = pick(keys);
+    return { key: k, name: REG_NAME[k], place: pick(PLACES[k]), kind: 'nodata' };
+  }
+  const bench = y < -1000 ? SHARES[0] : SHARES.reduce((a, b) => Math.abs(b.y - y) < Math.abs(a.y - y) ? b : a);
+  const it = weighted(REG_KEYS.map((k, i) => ({ k, w: bench.s[i] })));
+  return { key: it.k, name: REG_NAME[it.k], place: pick(PLACES[it.k]), share: bench.s[REG_KEYS.indexOf(it.k)], bench: bench.y, est: y < -1000, kind: 'data' };
+}
+const FAMS = [
+  { w: 70, job: '농부', fam: '농사짓는 집안' },
+  { w: 6, job: '목동', fam: '가축을 치는 집안' },
+  { w: 5, job: '어부', fam: '고기잡이 집안' },
+  { w: 6, job: '장인', fam: '손기술로 먹고사는 집안' },
+  { w: 4, job: '상인', fam: '물건을 사고파는 집안' },
+  { w: 5, job: '하인', fam: '남의 집에 매인 집안' },
+  { w: 3, job: '병사', fam: '싸움터에 끌려 나가는 집안' },
+  { w: 1, job: '귀족', fam: '땅과 사람을 거느린 집안' },
+];
+function adultAge() { const b = weighted([{ w: 25, a: [15, 29] }, { w: 30, a: [30, 44] }, { w: 27, a: [45, 59] }, { w: 15, a: [60, 74] }, { w: 3, a: [75, 88] }]); return randInt(b.a[0], b.a[1]); }
+function kidsLine(age) {
+  if (age < 20) return null;
+  const k = randInt(2, 7); let d = 0; for (let i = 0; i < k; i++) if (R() < 0.5) d++;
+  if (d === 0) return `아이 ${k}명을 두었고, 모두 어른이 될 때까지 지켜 냈습니다. 그 시대엔 드문 일이었습니다.`;
+  return `아이 ${k}명을 두었고, 그중 ${d}명을 먼저 떠나보냈습니다.`;
+}
+function genPast() {
+  const p = weighted(PRB, 'births');
+  let y = Math.round(p.from + (p.to - p.from) * Math.pow(R(), 0.4));
+  if (y >= p.to) y = p.to - 1; if (y === 0) y = 1;
+  const reg = regionFor(y);
+  const sex = R() < 0.5 ? 'f' : 'm';
+  const child = sex === 'f' ? '딸' : '아들';
+  const order = pick(['첫째', '둘째', '셋째', '넷째', '다섯째']);
+  const hunter = y < -8000;
+  const fam = hunter ? { job: '수렵채집인', fam: '사냥하고 채집하며 떠도는 무리' } : weighted(FAMS);
+  const r = R(); let age, stage;
+  if (r < 0.27) { age = 0; stage = 'infant'; } else if (r < 0.5) { age = randInt(1, 14); stage = 'child'; } else { age = adultAge(); stage = 'adult'; }
+  const lines = [`${reg.place}의 ${fam.fam}에서 ${order} ${child}로 태어났습니다.`];
+  if (stage === 'infant') {
+    const c = pick(['열병', '설사병', '이름 모를 병']);
+    lines.push(`첫돌을 넘기지 못하고 ${c}${ro(c)} 세상을 떠났습니다.`);
+  } else if (stage === 'child') {
+    const c = pick(['돌림병', '열병', '굶주림', '물난리', '이름 모를 병']);
+    lines.push(`${age}살에 ${c}${ro(c)} 세상을 떠났습니다.`);
+  } else {
+    if (hunter) lines.push(sex === 'f' ? '열매와 뿌리를 캐고 아이들을 돌보며 무리와 함께 평생을 떠돌았습니다.' : '사냥감을 쫓아 무리와 함께 평생을 떠돌았습니다.');
+    else lines.push(`평생 ${fam.job}${ro(fam.job)} 살았습니다.`);
+    const k = kidsLine(age); if (k) lines.push(k);
+    lines.push(pick(hunter
+      ? ['혹독한 겨울을 몇 번이나 넘겼습니다.', '무리가 둘로 갈라지던 날을 끝까지 기억했습니다.', '평생 바다를 한 번도 보지 못했습니다.']
+      : ['흉년이 들 때마다 마을 사람 몇이 사라졌습니다.', '평생 태어난 곳에서 사흘 거리 밖으로 나가 본 적이 없습니다.', '전쟁이 지나갈 때마다 집을 새로 지어야 했습니다.', '글을 읽을 줄 몰랐습니다.', '좋은 해에는 마을 잔치에서 밤새 춤을 췄습니다.']));
+    let c = pick(['돌림병', '열병', '굶주림', '사고', '오랜 병']);
+    if (sex === 'f' && age >= 18 && age <= 40 && R() < 0.3) lines.push(`${age}살에 아이를 낳다가 세상을 떠났습니다.`);
+    else lines.push(`${age}살에 ${c}${ro(c)} 세상을 떠났습니다.`);
+  }
+  const closing = fam.job === '귀족' ? '이 사람의 이름은 어느 집안 기록에 한 줄쯤 남았을지도 모릅니다.' : pick(['이 사람의 이름은 어디에도 기록되지 않았습니다.', '이 사람이 살았다는 흔적은 지금 아무것도 남아 있지 않습니다.', '이 사람을 기억하는 사람은 이제 아무도 없습니다.']);
+  const stats = [];
+  stats.push(`1900년 이전에 태어난 약 ${korBig(PRB_TOTAL)} 명 중 <b>${(p.births / PRB_TOTAL * 100).toFixed(1)}%</b>가 이 사람과 같은 시기(${p.label})에 태어났습니다.`);
+  if (reg.kind === 'early') stats.push('이 시기 인류는 대부분 아프리카에 살았습니다.');
+  else if (reg.kind === 'nodata') stats.push('이 시기는 지역별 인구 통계가 없어 지역을 고르게 뽑았습니다.');
+  else if (reg.est) stats.push(`이 시기는 지역 통계가 없어 기원전 1000년 비율로 대신 뽑았습니다. 그때 세계 인구의 약 <b>${reg.share}%</b>가 ${reg.name}에 살았습니다.`);
+  else stats.push(`${reg.bench === 1 ? '서기 1년' : fmtYear(reg.bench)} 무렵 세계 인구의 약 <b>${reg.share}%</b>가 ${reg.name}에 살았습니다.`);
+  if (stage === 'infant') stats.push('근대 이전에는 아기 약 <b>27%</b>가 첫돌 전에 세상을 떠났습니다.');
+  else if (stage === 'child') stats.push('근대 이전에는 아이 <b>둘 중 하나</b>가 15살을 넘기지 못했습니다.');
+  else stats.push('이 사람은 15살을 넘긴 <b>절반</b>에 들었습니다. 근대 이전에는 아이 둘 중 하나가 그러지 못했습니다.');
+  if (stage === 'adult' && fam.job === '농부') stats.push('1400~1500년대 프랑스와 폴란드에서도 일하는 사람의 <b>70% 이상</b>이 농민이었습니다.');
+  const ageTxt = age === 0 ? '첫돌 전 사망' : `${age}살 사망`;
+  return {
+    kicker: '당신의 전생',
+    big: `${fmtYear(y)},<br>${esc(reg.place)}`,
+    meta: `${reg.name} · ${fam.job === '수렵채집인' ? '수렵채집 무리' : fam.job + ' 집안'} · ${sex === 'f' ? '여성' : '남성'} · ${ageTxt}`,
+    lines, closing, stats,
+    share: `[다시 태어난다면] 내 전생은 ${fmtYear(y)} ${reg.place}의 ${fam.fam}에서 태어난 ${order} ${child}. ${age === 0 ? '첫돌도 못 넘겼대.' : age < 15 ? `${age}살에 세상을 떠났대.` : `${age}살까지 살았대.`} 당신의 전생은?`,
+  };
+}
+function teasePast() { const p = weighted(PRB, 'births'); const y = Math.round(p.from + (p.to - p.from) * R()) || 1; const k = pick(Object.keys(PLACES)); return `${fmtYear(y)} · ${pick(PLACES[k])}`; }
+
+// ---------- 다음 생 ----------
+const CREATURES = [
+  { name: '요각류', n: 1.3e21, desc: ['쌀알보다 작은 몸으로 바닷물 속을 떠다니며 플랑크톤을 먹습니다.', '청어나 고래의 한 끼가 되는 것이 이번 생의 주요 업무입니다.', '바닷물 한 컵 속에도 동료가 있을지 모릅니다.'] },
+  { name: '토양 선충', n: 4.4e20, desc: ['흙 한 줌 속에서 세균을 먹으며 삽니다. 평생 햇빛을 볼 일은 없습니다.', '몸길이는 1mm도 안 됩니다. 사람들이 밟고 지나가는 흙 속이 당신의 우주입니다.'] },
+  { name: '곤충', n: 1e19 - 2e16, sub: ['한여름 풀숲의 메뚜기', '가로등에 모여드는 나방', '썩은 나무 속 딱정벌레 애벌레', '물웅덩이의 모기 유충', '꽃밭의 꿀벌'], desc: ['구체적으로는 {sub}입니다.'] },
+  { name: '개미', n: 2e16, desc: ['약 2경 마리 중 한 마리입니다. 여왕은 평생 한 번도 못 볼 가능성이 큽니다.', '자기 몸보다 몇 배 무거운 것을 들고 하루 종일 일합니다.'] },
+  { name: '남극 크릴', n: 8e14, desc: ['남극 바다에서 거대한 무리를 지어 삽니다. 고래가 입을 벌리면 끝입니다.'] },
+  { name: '야생 육상 포유류', n: 8.78e10, desc: ['숲과 들판 어딘가에서 삽니다. 털이 있다는 것만으로도 상위권 결과입니다.'] },
+  { name: '야생 새', n: 5e10, desc: ['하늘을 납니다. 다음 생 결과 중에서 손꼽히게 좋은 편입니다.'] },
+  { name: '닭', n: 3.3e10, desc: ['사람보다 네 배 많은 동료가 있습니다. 그다음 이야기는 묻지 않는 게 좋겠습니다.'] },
+  { name: '사람', n: 8.2e9, desc: ['축하합니다. 이번 생도 사람입니다. 지금 이 확률을 뚫은 겁니다.'] },
+  { name: '소', n: 1578614144, desc: ['넓은 들판에서 풀을 씹습니다. 되새김질할 시간은 넉넉합니다.'] },
+  { name: '양', n: 1362590976, desc: ['털이 계속 자랍니다. 일 년에 한 번 이발을 당합니다.'] },
+  { name: '개', n: 9.87e8, desc: ['사람 곁에서 삽니다. 산책이 하루의 가장 큰 행사입니다.'] },
+  { name: '돼지', n: 962441600, desc: ['생각보다 똑똑합니다. 그 사실이 이번 생을 더 복잡하게 만듭니다.'] },
+  { name: '고양이', n: 6e8, desc: ['사람을 집사로 둡니다. 다음 생 결과 중 가장 팔자가 좋을지도 모릅니다.'] },
+];
+const C_TOTAL = CREATURES.reduce((s, c) => s + c.n, 0);
+const P_HUMAN = 8.2e9 / C_TOTAL;
+function rarity(p) { if (p >= 0.1) return '흔함'; if (p >= 1e-3) return '드묾'; if (p >= 1e-6) return '희귀'; if (p >= 1e-10) return '전설'; return '기적'; }
+function loadCount() { try { return JSON.parse(localStorage.getItem('rebirth_next') || '{"rolls":0,"humans":0}'); } catch (e) { return { rolls: 0, humans: 0 }; } }
+function saveCount(c) { try { localStorage.setItem('rebirth_next', JSON.stringify(c)); } catch (e) { } }
+function genNext() {
+  const c = weighted(CREATURES, 'n');
+  const p = c.n / C_TOTAL;
+  const cnt = loadCount(); cnt.rolls++; if (c.name === '사람') cnt.humans++; saveCount(cnt);
+  let d = pick(c.desc); if (c.sub) d = d.replace('{sub}', pick(c.sub));
+  const stats = [
+    `지금 지구에 약 <b>${korBig(c.n)}</b> 마리가 살고 있습니다. 이 결과가 나올 확률은 <b>${probStr(p)}</b>입니다.`,
+    `사람으로 다시 태어날 확률은 약 <b>${korBig(1 / P_HUMAN)} 분의 1</b>입니다.`,
+  ];
+  return {
+    kicker: '당신의 다음 생',
+    big: `당신은 ${c.name}입니다 <span class="badge">${rarity(p)}</span>`,
+    meta: `이 화면에서 지금까지 ${nf(cnt.rolls)}번 뽑았고, 사람은 ${nf(cnt.humans)}번 나왔습니다.`,
+    lines: [d], closing: '', stats,
+    share: `[다시 태어난다면] 다음 생에 나는 ${c.name}래. 사람으로 다시 태어날 확률은 ${korBig(1 / P_HUMAN)} 분의 1. 당신의 다음 생은?`,
+  };
+}
+function simHTML() {
+  const N = 1e8;
+  const rows = CREATURES.map(c => { const e = c.n / C_TOTAL * N; return `<tr${c.name === '사람' ? ' class="hl"' : ''}><td>${c.name}</td><td>${e >= 1 ? korBig(Math.round(e)) + '번' : '0번'}</td></tr>`; }).join('');
+  const eh = P_HUMAN * N;
+  return `<h4>1억 번 돌리면 평균적으로</h4><table>${rows}</table><p>1억 번을 돌려도 사람이 나올 기대 횟수는 <b>${eh.toFixed(4)}번</b>입니다. 사람이 한 번 나오려면 평균 ${korBig(1 / P_HUMAN)} 번을 돌려야 합니다.</p>`;
+}
+function teaseNext() { return pick(CREATURES).name; }
+
+// ---------- 조선 ----------
+const JS_YEARS = [
+  { y: 1690, yb: 7.4, sm: 49.5, nb: 43.1, hh: 9.2 },
+  { y: 1729, yb: 14.8, sm: 52.8, nb: 32.4, hh: 18.7 },
+  { y: 1783, yb: 31.9, sm: 52.2, nb: 15.9, hh: 37.5 },
+  { y: 1858, yb: 48.6, sm: 20.1, nb: 31.3, hh: 70.3 },
+];
+const JS_PROV = [
+  { name: '한성', w: 189153, places: ['남촌', '북촌', '마포 나루 근처'] },
+  { name: '경기도', w: 642069, places: ['수원', '광주', '양주', '개성 근처'] },
+  { name: '강원도', w: 332256, places: ['원주', '춘천', '강릉'] },
+  { name: '충청도', w: 868219, places: ['공주', '청주', '충주', '홍주'] },
+  { name: '황해도', w: 567813, places: ['해주', '황주', '연안'] },
+  { name: '전라도', w: 1220804, places: ['전주', '나주', '남원', '제주'] },
+  { name: '평안도', w: 1296044, places: ['평양', '의주', '안주', '정주'] },
+  { name: '경상도', w: 1590973, places: ['대구', '안동', '진주', '경주', '동래'] },
+  { name: '함경도', w: 696275, places: ['함흥', '길주', '경성', '북청'] },
+];
+const JS_TOTAL = JS_PROV.reduce((s, p) => s + p.w, 0);
+const JS_FAM = {
+  yb: ['몰락한 양반 집안', '대대로 땅을 가진 양반 집안', '과거 급제를 기다리는 양반 집안'],
+  sm: ['남의 땅을 부치는 농민 집안', '손바닥만 한 자기 땅을 가진 농민 집안', '옹기를 굽는 장인 집안', '장터를 도는 행상 집안'],
+  nb: ['양반가에 딸린 솔거 노비 집안', '따로 살며 주인에게 신공을 바치는 외거 노비 집안', '관청에 매인 공노비 집안'],
+};
+const JS_LIFE = {
+  yb_m: [{ w: 50, t: '평생 과거 공부를 했지만 끝내 급제하지 못했습니다.' }, { w: 10, t: '과거에 급제해 지방 수령으로 나갔습니다.' }, { w: 40, t: '땅과 노비를 관리하며 고을에서 양반 대접을 받았습니다.' }],
+  yb_f: [{ w: 1, t: '열여섯에 다른 고을 양반가로 시집가 평생 시댁 살림을 맡았습니다.' }, { w: 1, t: '바깥출입이 거의 없는 삶이었습니다. 대신 집안 제사와 살림을 도맡았습니다.' }],
+  sm_m: [{ w: 3, t: '평생 농사를 지으며 세금과 부역을 감당했습니다.' }, { w: 2, t: '해마다 군포를 내느라 허리가 휘었습니다.' }, { w: 1, t: '장터를 돌며 물건을 팔아 식구를 먹였습니다.' }],
+  sm_f: [{ w: 1, t: '농사일과 길쌈을 하며 아이들을 키웠습니다.' }, { w: 1, t: '장날마다 직접 짠 베를 내다 팔았습니다.' }],
+  nb_m: [{ w: 2, t: '주인집에 살며 밭일과 집안일을 도맡았습니다.' }, { w: 2, t: '따로 살며 해마다 주인에게 신공을 바쳤습니다.' }, { w: 1, t: '관청에서 허드렛일을 했습니다.' }],
+  nb_f: [{ w: 2, t: '주인집에 살며 부엌일과 바느질을 도맡았습니다.' }, { w: 1, t: '주인 집안 아씨의 혼수로 다른 집에 보내졌습니다.' }, { w: 1, t: '따로 살며 해마다 주인에게 신공을 바쳤습니다.' }],
+};
+const ST_NAME = { yb: '양반', sm: '상민', nb: '노비' };
+function genJoseon() {
+  const d = pick(JS_YEARS);
+  const y = d.y + randInt(-4, 4);
+  const st = weighted([{ k: 'yb', w: d.yb }, { k: 'sm', w: d.sm }, { k: 'nb', w: d.nb }]).k;
+  const prov = weighted(JS_PROV);
+  const place = pick(prov.places);
+  const sex = R() < 0.5 ? 'f' : 'm';
+  const child = sex === 'f' ? '딸' : '아들';
+  const order = pick(['첫째', '둘째', '셋째', '넷째', '막내']);
+  const fam = pick(JS_FAM[st]);
+  const where = prov.name === '한성' ? `한성 ${place}` : `${prov.name} ${place}`;
+  const lines = [`${where}의 ${fam}에서 ${order} ${child}로 태어났습니다.`];
+  const r = R(); let age, stage;
+  if (r < 0.25) { age = 0; stage = 'infant'; lines.push('첫돌을 넘기지 못했습니다.'); }
+  else if (r < 0.40) { age = randInt(1, 12); stage = 'child'; const c = pick(['마마', '홍역', '열병', '설사병']); lines.push(`${age}살에 ${c}${ro(c)} 세상을 떠났습니다.`); }
+  else {
+    stage = 'adult'; age = randInt(22, 72);
+    lines.push(weighted(JS_LIFE[`${st}_${sex}`]).t);
+    if (st === 'sm' && sex === 'm' && d.y >= 1783 && R() < 0.3) lines.push('늘그막에 돈을 모아 호적에 ‘유학’이라 올리고 양반 행세를 시작했습니다.');
+    if (st === 'nb' && R() < 0.12) lines.push('어느 날 밤, 식구들을 데리고 도망쳤습니다. 그 뒤 기록에서 사라졌습니다.');
+    else lines.push(`${age}살에 세상을 떠났습니다.`);
+  }
+  const stats = [
+    `${d.y}년 무렵 대구 호적에 오른 사람 중 양반은 <b>${d.yb}%</b>, 상민은 <b>${d.sm}%</b>, 노비는 <b>${d.nb}%</b>였습니다.`,
+    `1789년 장부상 조선 인구의 <b>${(prov.w / JS_TOTAL * 100).toFixed(1)}%</b>가 ${prov.name}에 살았습니다.`,
+  ];
+  if (d.y === 1858 && st === 'yb') stats.push('1858년 대구에서는 양반 가구가 <b>70%</b>까지 늘었습니다. 호적에 ‘유학’을 자칭하는 일이 흔했기 때문입니다.');
+  if (stage === 'adult' && sex === 'm') stats.push('족보를 분석한 연구에서는 18~19세기 조선 남성의 출생 시 기대여명을 약 <b>23세</b>로 추정합니다. 어린 나이에 죽는 아이가 그만큼 많았다는 뜻입니다.');
+  else stats.push('근대 이전에는 아이 <b>4명 중 1명</b>이 첫돌 전에, <b>3명 중 1명</b>이 네 살 전에 세상을 떠났습니다.');
+  const stName = ST_NAME[st];
+  return {
+    kicker: '조선에 태어났다면',
+    big: `${y}년, ${esc(where)}<br>${stName} 집안의 ${order} ${child}`,
+    meta: `${stName} · ${sex === 'f' ? '여성' : '남성'} · ${age === 0 ? '첫돌 전 사망' : `${age}살 사망`}`,
+    lines, closing: st === 'nb' ? '이 사람의 이름은 주인집 재산 목록에 적혀 있었습니다.' : '', stats,
+    share: `[다시 태어난다면] 조선에 태어났다면 나는 ${y}년 ${where}의 ${stName} 집안 ${order} ${child}. 당신은 양반일까 노비일까?`,
+  };
+}
+function teaseJoseon() { const d = pick(JS_YEARS); return `${d.y}년 · ${pick(JS_PROV).name} · ${pick(['양반', '상민', '노비'])}`; }
+
+// ---------- UI ----------
+const MODES = {
+  past: { tab: '전생', title: '1,045억 명 중 한 명, 당신의 전생', desc: '1900년 이전에 태어난 약 1,045억 명 중 한 명을 실제 시대별 출생 비율 그대로 뽑습니다. 왕이나 장군이 나올까요?', btn: '전생 뽑기', gen: genPast, tease: teasePast },
+  next: { tab: '다음 생', title: '다음 생에도 사람일까?', desc: '지금 지구에 살아 있는 동물 수 비율 그대로 다음 생을 뽑습니다. 사람이 나올 수 있을까요?', btn: '다음 생 뽑기', gen: genNext, tease: teaseNext },
+  joseon: { tab: '조선', title: '조선에 태어났다면, 나는?', desc: '실제 조선 호적의 신분 비율과 도별 인구 비율 그대로 뽑습니다. 양반일까요, 상민일까요, 노비일까요?', btn: '조선에 태어나기', gen: genJoseon, tease: teaseJoseon },
+};
+let mode = 'past', last = null, rolling = false;
+const $ = id => document.getElementById(id);
+function setMode(m, push = true) {
+  if (!MODES[m]) m = 'past';
+  mode = m; document.body.dataset.mode = m;
+  document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.mode === m));
+  const M = MODES[m];
+  $('intro').innerHTML = `<h2>${M.title}</h2><p>${M.desc}</p>`;
+  $('roll').textContent = M.btn; $('roll').hidden = false; $('roll').disabled = false;
+  ['slot', 'card', 'actions', 'sim', 'others'].forEach(id => $(id).hidden = true);
+  $('counter').textContent = '';
+  if (push) history.replaceState(null, '', '#' + m);
+}
+function render(res) {
+  $('card').innerHTML = `<p class="kicker">${res.kicker}</p><h3 class="big">${res.big}</h3><p class="meta">${res.meta}</p><div class="story">${res.lines.map(l => `<p>${esc(l)}</p>`).join('')}</div>${res.closing ? `<p class="closing">${esc(res.closing)}</p>` : ''}<div class="stats">${res.stats.map(s => `<div>${s}</div>`).join('')}</div>`;
+  $('card').hidden = false; $('card').style.animation = 'none'; void $('card').offsetWidth; $('card').style.animation = '';
+  $('actions').hidden = false; $('simBtn').hidden = mode !== 'next'; $('sim').hidden = true;
+  $('others').hidden = false;
+  $('otherBtns').innerHTML = Object.keys(MODES).filter(k => k !== mode).map(k => `<button class="btn" data-go="${k}">${MODES[k].tab} 뽑기</button>`).join('');
+}
+function roll() {
+  if (rolling) return; rolling = true;
+  const M = MODES[mode];
+  $('roll').hidden = true; $('card').hidden = true; $('actions').hidden = true; $('sim').hidden = true; $('others').hidden = true;
+  const slot = $('slot'); slot.hidden = false;
+  let n = 0; const iv = setInterval(() => { slot.textContent = M.tease(); n++; }, 70);
+  setTimeout(() => {
+    clearInterval(iv); slot.hidden = true;
+    last = M.gen(); render(last); rolling = false;
+    $('card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 1400);
+}
+function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1800); }
+async function share() {
+  if (!last) return;
+  const url = location.href.split('#')[0] + '#' + mode;
+  const text = last.share;
+  if (navigator.share) { try { await navigator.share({ title: '다시 태어난다면', text, url }); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
+  try { await navigator.clipboard.writeText(text + ' ' + url); toast('결과를 복사했습니다'); }
+  catch (e) { prompt('아래 내용을 복사해 공유하세요', text + ' ' + url); }
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => { if (!rolling) setMode(t.dataset.mode); }));
+$('roll').addEventListener('click', roll);
+$('again').addEventListener('click', roll);
+$('share').addEventListener('click', share);
+$('simBtn').addEventListener('click', () => { $('sim').innerHTML = simHTML(); $('sim').hidden = false; });
+$('otherBtns').addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) { setMode(b.dataset.go); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
+setMode((location.hash || '#past').slice(1), false);
+window.__gen = { genPast, genNext, genJoseon };
+</script>
 </body>
 </html>
